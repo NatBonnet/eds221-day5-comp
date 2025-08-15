@@ -12,7 +12,7 @@ first install necessary packages
 #install.packages("testthat") #you need to comment out any install packages lines because they will run again every time you render
 #install.packages("devtools")
 #install.packages("remotes")
-
+rm(list = ls())
 library(testthat)
 library(devtools)
 library(remotes)
@@ -44,9 +44,16 @@ Write unit tests
 # test that output is a length of 2
 expect_length(mean_range(df=mtcars), 2) # works if it doesn't return anything
 
-expect_type(mean_range(mtcars), is.numeric)
-
 # test that the first value is less than the second
 expect_true(mean_range(mtcars)[1] < mean_range(mtcars)[2])
+```
+
+
+## practice sourcing functions
+```{r}
+source(here::here("src", "food_cart_functions.R")) #function needs to be within an R script
+
+name_cart("strawberry", "cat")
+
 ```
 
